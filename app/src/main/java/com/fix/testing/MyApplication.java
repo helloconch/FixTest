@@ -1,11 +1,14 @@
 package com.fix.testing;
 
 import android.app.Application;
+import android.util.Log;
 
 /**
  * Created by cheyanxu on 16/7/18.
  */
 public class MyApplication extends Application {
+
+    private final String TAG = MyApplication.class.getSimpleName();
 
     public FixBugManage fixBugManage;
 
@@ -24,8 +27,10 @@ public class MyApplication extends Application {
     public void addPatch(String path) {
         try {
             this.fixBugManage.addPatch(path);
+            Log.i(TAG, "addPatch Complete");
         } catch (Exception e) {
             e.printStackTrace();
+            Log.i(TAG, "" + e.toString());
         }
     }
 
